@@ -2,7 +2,7 @@
 
 /* Get DOM Elements */
 // const scoreboard = document.getElementById('scoreboard');
-// const message = document.getElementById('message');
+const messageDisplay = document.getElementById('message');
 
 const playerHP = document.getElementById('player-hp');
 const playerImage = document.getElementById('player-image');
@@ -12,6 +12,8 @@ let player = {
     hp: 10,
     type: 'hero',
 };
+
+let message = 'Add new monsters and fight them';
 
 /* Events */
 
@@ -26,5 +28,10 @@ function displayPlayer() {
         playerImage.src = 'assets/jack-o-lantern.png';
     }
 }
+
+function displayMessage() {
+    messageDisplay.textContent = message;
+}
 // (don't forget to call any display functions you want to run on page load!)
 displayPlayer();
+displayMessage();
