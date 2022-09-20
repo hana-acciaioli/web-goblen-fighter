@@ -1,7 +1,7 @@
 /* Imports */
 
 /* Get DOM Elements */
-// const scoreboard = document.getElementById('scoreboard');
+const scoreboardDisplay = document.getElementById('scoreboard');
 const messageDisplay = document.getElementById('message');
 
 const playerHP = document.getElementById('player-hp');
@@ -14,6 +14,8 @@ let player = {
 };
 
 let message = 'Add new monsters and fight them';
+
+let monstersKilled = 0;
 
 /* Events */
 
@@ -32,6 +34,11 @@ function displayPlayer() {
 function displayMessage() {
     messageDisplay.textContent = message;
 }
+
+function displayScoreboard() {
+    scoreboardDisplay.textContent = `You have slain ${monstersKilled} monsters`;
+}
 // (don't forget to call any display functions you want to run on page load!)
 displayPlayer();
 displayMessage();
+displayScoreboard();

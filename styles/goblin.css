@@ -26,6 +26,11 @@ main {
     background: orange;
 }
 
+#scoreboard {
+    text-align: center;
+    font-size: large;
+}
+
 #message-section {
     grid-area: message;
     background: rgba(255, 132, 0, 0.919);
