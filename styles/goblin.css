@@ -1,0 +1,70 @@
+main {
+    padding: 10px;
+    padding-bottom: 0;
+    display: grid;
+    grid-template-rows: 10% 10% 80%;
+    grid-template-areas:
+        'scoreboard'
+        'message'
+        'game';
+    background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c6bf1f57380447.59d3bad10fda0.jpg);
+}
+
+.game-area {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.goblin-section {
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+}
+
+#scoreboard-section {
+    grid-area: scoreboard;
+    background: orange;
+}
+
+#message-section {
+    grid-area: message;
+    background: rgba(255, 132, 0, 0.919);
+}
+
+#player-container {
+    justify-self: center;
+    display: flex;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+
+    flex-direction: column;
+    align-items: center;
+    background: peachpuff;
+}
+
+.goblin-section {
+    display: grid;
+    justify-self: left;
+}
+
+.player-section {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#goblins-container {
+    justify-self: center;
+    display: flex;
+    width: 300px;
+    height: 400px;
+
+    flex-direction: column;
+    align-items: center;
+    background: black;
+}
+
+button {
+    background: rgb(16, 251, 16);
+}
