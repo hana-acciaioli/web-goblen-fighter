@@ -16,7 +16,7 @@ main {
     grid-template-columns: 50% 50%;
 }
 
-.goblin-section {
+.monster-section {
     display: grid;
     grid-template-rows: 10% 80% 10%;
 }
@@ -56,7 +56,7 @@ main {
     font-weight: bold;
 }
 
-.goblin-section {
+.monster-section {
     display: grid;
     justify-self: left;
 }

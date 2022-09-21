@@ -11,8 +11,29 @@ const playerImage = document.getElementById('player-image');
 
 const monsterList = document.getElementById('monster-list');
 
+const bat = { type: 'bat', hp: 2 };
+const ghost = { type: 'ghost', hp: 3 };
+const spider = { type: 'spider', hp: 4 };
+const poisonedApple = { type: 'poisoned-apple', hp: 5 };
+
 const playerAttacks = [0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5];
 const monsterAttacks = [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4];
+const monsterTypes = [
+    bat,
+    bat,
+    bat,
+    ghost,
+    ghost,
+    ghost,
+    ghost,
+    spider,
+    spider,
+    spider,
+    poisonedApple,
+    poisonedApple,
+];
+
+const addMonsterForm = document.getElementById('add-monster-form');
 
 /* State */
 let player = {
@@ -56,7 +77,7 @@ function displayMessage() {
 }
 
 function displayScoreboard() {
-    scoreboardDisplay.textContent = `You have slain ${monstersKilled} monsters`;
+    scoreboardDisplay.textContent = `You have slain ${monstersKilled} creepsters`;
 }
 
 function displayMonsters() {
@@ -101,8 +122,28 @@ function displayMonsters() {
         });
     }
 }
-// (don't forget to call any display functions you want to run on page load!)
-displayPlayer();
+
+addMonsterForm
+    .addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(addMonsterForm);
+        const monsterType = getRandomItem(monsterTypes);
+
+        const monster = {
+            name: formData.get('name'),
+            type: monsterType.type,
+            hp: monsterType.hp,
+        };
+        monsters.push(monster);
+        message = `${monster.name} the ${monster.type} has joined the fight`;
+
+        displayMonsters();
+        displayMessage();
+
+        addMonsterForm.reset();
+    })
+    // (don't forget to call any display functions you want to run on page load!)
+    .displayPlayer();
 displayMessage();
 displayScoreboard();
 displayMonsters();
