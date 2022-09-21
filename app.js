@@ -35,6 +35,8 @@ const monsterTypes = [
 
 const addMonsterForm = document.getElementById('add-monster-form');
 
+const removeDeadMonsters = document.getElementById('remove-dead-monsters');
+
 /* State */
 let player = {
     hp: 10,
@@ -61,6 +63,10 @@ let monsters = [
 /* Events */
 
 /* Display Functions */
+displayMessage();
+displayScoreboard();
+displayMonsters();
+
 function displayPlayer() {
     playerHP.textContent = Math.max(0, player.hp);
     if (player.hp < 1) {
@@ -123,24 +129,35 @@ function displayMonsters() {
     }
 }
 
-addMonsterForm
-    .addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(addMonsterForm);
-        const monsterType = getRandomItem(monsterTypes);
+addMonsterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(addMonsterForm);
+    const monsterType = getRandomItem(monsterTypes);
 
-        const monster = {
-            name: formData.get('name'),
-            type: monsterType.type,
-            hp: monsterType.hp,
-        };
-        monsters.push(monster);
-        message = `${monster.name} the ${monster.type} has joined the fight`;
+    const monster = {
+        name: formData.get('name'),
+        type: monsterType.type,
+        hp: monsterType.hp,
+    };
+    monsters.push(monster);
+    message = `${monster.name} the ${monster.type} has joined the fight`;
 
-        displayMonsters();
-        displayMessage();
+    displayMonsters();
+    displayMessage();
 
-        addMonsterForm.reset();
+    addMonsterForm.reset();
+});
+
+removeDeadMonsters
+    .addEventListener('click', () => {
+        const alive = [];
+        for (const monster of monsters) {
+            if (monster.hp > 0) {
+                alive.push(monster);
+            }
+            monsters = alive;
+            displayMonsters();
+        }
     })
     // (don't forget to call any display functions you want to run on page load!)
     .displayPlayer();
