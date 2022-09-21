@@ -148,19 +148,18 @@ addMonsterForm.addEventListener('submit', (e) => {
     addMonsterForm.reset();
 });
 
-removeDeadMonsters
-    .addEventListener('click', () => {
-        const alive = [];
-        for (const monster of monsters) {
-            if (monster.hp > 0) {
-                alive.push(monster);
-            }
-            monsters = alive;
-            displayMonsters();
+removeDeadMonsters.addEventListener('click', () => {
+    const alive = [];
+    for (const monster of monsters) {
+        if (monster.hp > 0) {
+            alive.push(monster);
         }
-    })
-    // (don't forget to call any display functions you want to run on page load!)
-    .displayPlayer();
+        monsters = alive;
+        displayMonsters();
+    }
+});
+// (don't forget to call any display functions you want to run on page load!)
+displayPlayer();
 displayMessage();
 displayScoreboard();
 displayMonsters();
