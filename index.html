@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <!-- metadata -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- title and favicon -->
+        <title>Web App</title>
+        <link rel="icon" type="image/x-icon" href="assets/alchemy-favicon.png" />
 
-    <!-- title and favicon -->
-    <title>Web App</title>
-    <link rel="icon" type="image/x-icon" href="assets/alchemy-favicon.png" />
+        <!-- js -->
+        <script type="module" src="app.js"></script>
 
-    <!-- js -->
-    <script type="module" src="app.js"></script>
+        <!-- fonts -->
+        <!-- see https://fonts.google.com/ -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+            rel="stylesheet"
+        />
+        <!-- css -->
+        <link rel="stylesheet" href="styles/reset.css" />
+        <link rel="stylesheet" href="styles/global.css" />
+        <!-- add link for page specific css -->
+        <link rel="stylesheet" href="styles/goblin.css" />
+    </head>
 
-    <!-- fonts -->
-    <!-- see https://fonts.google.com/ -->
+    <body>
+        <header>
+            <img class="logo" src="assets/html_css_js.png" alt="logo" />
+            <h1>Web Goblin Game</h1>
+        </header>
 
-    <!-- css -->
-    <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/global.css" />
-    <!-- add link for page specific css -->
-
-</head>
-
-<body>
-    <header>
-        <img class="logo" src="assets/html_css_js.png" alt="logo">
-        <h1>Web App</h1>
-    </header>
-
-    <main>
-
-    </main>
-
-</body>
-
+        <main>
+            <section id="scoreboard-section">
+                <p id="scoreboard"></p>
+            </section>
+            <section id="message-section">
+                <p id="message"></p>
+            </section>
+            <article class="game-area">
+                <section class="player-section">
+                    <div id="player-container">
+                        <p id="player-hp">20</p>
+                        <img
+                            id="player-image"
+                            src="./assets/jack-o-lantern.png"
+                            alt="player avatar"
+                        />
+                    </div>
+                </section>
+                <section class="monster-section">
+                    <form id="add-monster-form">
+                        <input required name="name" />
+                        <button id="add-goblin-button">Add Creepsters</button>
+                    </form>
+                    <div id="monsters-container">
+                        <ul id="monster-list">
+                            <li class="monster card">
+                                <span class="stat">2</span>
+                                <img src="./assets/bat.png" />
+                            </li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <button id="remove-dead-monsters">Remove Dead Creepsters</button>
+                </section>
+            </article>
+        </main>
+    </body>
 </html>
